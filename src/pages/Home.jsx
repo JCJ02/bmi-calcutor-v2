@@ -1,4 +1,4 @@
-import Button from "../components/Button.jsx";
+import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
 
 const Home = () => {
@@ -15,12 +15,12 @@ const Home = () => {
                 <p className="font-poppins text-sm md:text-md lg:text-lg text-[#33313B] text-justify md:text-center">
                     The body mass index is an indicator obtained by dividing a person's weight in kilograms by their height squared in meters. It is used to measure body fat, but does not differentiate muscle mass from fat mass.
                 </p>
-                <Button 
-                    buttonStyle={"bg-[#4592AF] hover:scale-110 duration-500"}
-                    onClick={() => window.location = "/bmicalculator"}
+                <Link 
+                    className="bg-[#4592AF] font-poppins text-[#F6F5F5] text-xs md:text-md lg:text-lg px-[2rem] py-[0.5rem] rounded-full hover:scale-110 duration-500"
+                    to={"/bmicalculator"}
                 >
                     Get Started
-                </Button>
+                </Link>
             </section>
         </div>
     </>
