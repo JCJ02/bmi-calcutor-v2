@@ -9,6 +9,7 @@ const BMI = () => {
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
   const [BMI, setBMI] = useState(0);
+  const [classification, setClassification] = useState("");
 
   const clearFields = () => {
     setHeight(0);
@@ -24,11 +25,33 @@ const BMI = () => {
 
   const calculateBMI = (event) => {
     event.preventDefault();
+
     let bmiResult = weight / (height * height);
-    setBMI(bmiResult.toFixed(2));
 
     if(weight === 0 && height === 0) {
       setBMI("Syntax Error!");
+    } else { setBMI(bmiResult.toFixed(2)); }
+
+    if(bmiResult < 16.5) {
+      setClassification("Severely Underweight");
+    } else if(bmiResult >= 16.5 && bmiResult < 18.5) {
+      setClassification("Underweight");
+    } else if(bmiResult >= 18.5 && bmiResult < 25) {
+      setClassification("Normal");
+    } else if(bmiResult >= 25 && bmiResult < 30) {
+      setClassification("Overweight");
+    } else if(bmiResult >= 30 && bmiResult < 35) {
+      setClassification("Obese Class I");
+    } else if(bmiResult >= 35 && bmiResult < 40) {
+      setClassification("Obese Class II");
+    } else if(bmiResult >= 40 && bmiResult < 45) {
+      setClassification("Severely Obese");
+    } else if(bmiResult >= 45 && bmiResult < 50) {
+      setClassification("Morbidly Obese");
+    } else if(bmiResult >= 50 && bmiResult < 60) {
+      setClassification("Super Obese");
+    } else if(bmiResult >= 60) {
+      setClassification("Hyper Obese");
     }
 
     result(event);
@@ -97,7 +120,7 @@ const BMI = () => {
           </div>
           <Modal openModal={openResult} closeModal={result}>
             <h1 className="font-poppins font=extrabold text-[#F6F5F5] text-xs md:text-md lg:text-lg">BMI: <b className="text-[#008000]">{BMI}</b></h1>
-            <h1 className="font-poppins font=extrabold text-[#F6F5F5] text-xs md:text-md lg:text-lg">Category: </h1>
+            <h1 className="font-poppins font=extrabold text-[#F6F5F5] text-xs md:text-md lg:text-lg">Category: <b>{classification}</b></h1>
           </Modal>
         </section>
         <Footer />
