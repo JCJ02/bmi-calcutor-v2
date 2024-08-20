@@ -9,6 +9,6 @@ export const router = createBrowserRouter([
     { path: "/", element: <App /> },
     { path: "/about", element: <About /> },
     { path: "/contact", element: <Contact /> },
-    { path: "/bmicalculator", element: <BMI /> },
-    { path: "/helloworld", element: <HelloWorld /> }
+    { path: "/bmi-calculator", element: <BMI /> },
+    { path: "/hello-world", element: <HelloWorld /> }
 ]);
