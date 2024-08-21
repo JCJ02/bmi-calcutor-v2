@@ -109,30 +109,28 @@ const BMI = () => {
             </form>
           </div>
           <Modal openModal={openResult} closeModal={result}>
-            <h1 className="font-mono font-extrabold text-[#4592AF] text-[1.5rem]">RESULTS</h1>
+            <h1 className="font-mono font-extrabold text-[#4592AF] text-[2rem]">RESULTS</h1>
             <section className="font-mono flex items-center gap-1 w-full">
-              <label className="font-bold text-[#33313B] text-sm md:text-md lg:text-lg">Body Mass Index:</label>
+              <label className="font-bold text-[#33313B] text-md md:text-xl lg:text-2xl">Body Mass Index:</label>
               <label 
-                className={
-                  `text-[#4592AF] text-xs md:text-sm lg:text-md 
-                  ${BMI < 18.5 ? "text-[#000000]" : null} 
-                  ${BMI >= 18.5 && BMI < 25 ? "text-[#00ff00]" : null} 
-                  ${BMI >= 25 && BMI < 30 ? "text-[#4592AF]" : null} 
-                  ${BMI >= 30 && BMI < 40 ? "text-[#FFA500]" : null}
-                  ${BMI >= 40 ? "text-[#FF0000]" : null}`}
+                className={`text-sm md:text-lg lg:text-2xl 
+                  ${BMI < 18.5 ? "text-[#000000]" : ""} 
+                  ${BMI >= 18.5 && BMI < 25 ? "text-[#32cd32]" : ""} 
+                  ${BMI >= 25 && BMI < 30 ? "text-[#4592AF]" : ""} 
+                  ${BMI >= 30 && BMI < 40 ? "text-[#FFA500]" : ""} 
+                  ${BMI >= 40 ? "text-[#FF0000]" : ""}`}
                 >
                   {BMI}
                 </label>
             </section>
             <section className="font-mono flex items-center gap-1 w-full">
-              <label className="font-bold text-[#33313B] text-sm md:text-md lg:text-lg">Classification:</label>
-              <label className={
-                `text-[#4592AF] text-xs md:text-sm lg:text-md
-                ${classification === "Severely Underweight" || classification === "Underweight" ? "text-[#000000]" : null}
-                ${classification === "Normal" ? "text-[#00ff00]" : null}
-                ${classification === "Overweight" ? "text-[#4592AF]" : null} 
-                ${classification === "Obese Class I" || classification === "Obese Class II" ? "text-[#FFA500]" : null}
-                ${classification === "Severely Obese" || classification === "Morbidly Obese" || classification === "Super Obese" || classification === "Hyper Obese" ? "text-[#FF0000]" : null}`}
+              <label className="font-bold text-[#33313B] text-md md:text-xl lg:text-2xl">Classification:</label>
+              <label className={`text-sm md:text-lg lg:text-2xl 
+                ${classification === "Severely Underweight" || classification === "Underweight" ? "text-[#000000]" : ""}
+                ${classification === "Normal" ? "text-[#32cd32]" : ""}
+                ${classification === "Overweight" ? "text-[#4592AF]" : ""} 
+                ${classification === "Obese Class I" || classification === "Obese Class II" ? "text-[#FFA500]" : ""}
+                ${classification === "Severely Obese" || classification === "Morbidly Obese" || classification === "Super Obese" || classification === "Hyper Obese" ? "text-[#FF0000]" : ""}`}
               >
                 {classification}
               </label>

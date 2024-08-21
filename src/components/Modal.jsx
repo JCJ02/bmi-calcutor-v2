@@ -8,7 +8,7 @@ const Modal = ({openModal, closeModal, children}) => {
         onClick={closeModal}
       >
         <div 
-          className="bg-[#FFFFFF] relative flex flex-col items-start px-[24px] py-[48px] rounded-[8px] w-[360px]"
+          className="bg-[#FFFFFF] relative flex flex-col items-start p-[48px] rounded-[8px] w-[360px] md:w-[480px]"
           onClick={event => event.stopPropagation()}
         >
           <button
