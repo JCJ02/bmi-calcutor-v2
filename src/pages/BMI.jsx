@@ -111,9 +111,9 @@ const BMI = () => {
           <Modal openModal={openResult} closeModal={result}>
             <h1 className="font-mono font-extrabold text-[#4592AF] text-[2rem]">RESULTS</h1>
             <section className="font-mono flex items-center gap-1 w-full">
-              <label className="font-bold text-[#33313B] text-md md:text-xl lg:text-2xl">Body Mass Index:</label>
+              <label className="font-bold text-[#33313B] text-md md:text-lg lg:text-2xl">Body Mass Index:</label>
               <label 
-                className={`text-sm md:text-lg lg:text-2xl 
+                className={`text-sm md:text-md lg:text-lg 
                   ${BMI < 18.5 ? "text-[#000000]" : ""} 
                   ${BMI >= 18.5 && BMI < 25 ? "text-[#32cd32]" : ""} 
                   ${BMI >= 25 && BMI < 30 ? "text-[#4592AF]" : ""} 
@@ -125,7 +125,7 @@ const BMI = () => {
             </section>
             <section className="font-mono flex items-center gap-1 w-full">
               <label className="font-bold text-[#33313B] text-md md:text-xl lg:text-2xl">Classification:</label>
-              <label className={`text-sm md:text-lg lg:text-2xl 
+              <label className={`text-sm md:text-md lg:text-lg 
                 ${classification === "Severely Underweight" || classification === "Underweight" ? "text-[#000000]" : ""}
                 ${classification === "Normal" ? "text-[#32cd32]" : ""}
                 ${classification === "Overweight" ? "text-[#4592AF]" : ""} 
