@@ -28,32 +28,22 @@ const BMI = () => {
 
     let bmiResult = weight / (height * height);
 
-    if(weight === 0 && height === 0) {
-      setBMI("Syntax Error!");
-    } else { setBMI(bmiResult.toFixed(2)); }
+    if(weight === 0 && height === 0) { 
+      setBMI("Syntax Error!") 
+      setClassification("Sytax Error!") 
+    } else setBMI(bmiResult.toFixed(2)); 
 
-    if(bmiResult < 16.5) {
-      setClassification("Severely Underweight");
-    } else if(bmiResult >= 16.5 && bmiResult < 18.5) {
-      setClassification("Underweight");
-    } else if(bmiResult >= 18.5 && bmiResult < 25) {
-      setClassification("Normal");
-    } else if(bmiResult >= 25 && bmiResult < 30) {
-      setClassification("Overweight");
-    } else if(bmiResult >= 30 && bmiResult < 35) {
-      setClassification("Obese Class I");
-    } else if(bmiResult >= 35 && bmiResult < 40) {
-      setClassification("Obese Class II");
-    } else if(bmiResult >= 40 && bmiResult < 45) {
-      setClassification("Severely Obese");
-    } else if(bmiResult >= 45 && bmiResult < 50) {
-      setClassification("Morbidly Obese");
-    } else if(bmiResult >= 50 && bmiResult < 60) {
-      setClassification("Super Obese");
-    } else if(bmiResult >= 60) {
-      setClassification("Hyper Obese");
-    }
-
+    if(bmiResult < 16.5) setClassification("Severely Underweight");
+    else if(bmiResult >= 16.5 && bmiResult < 18.5) setClassification("Underweight");
+    else if(bmiResult >= 18.5 && bmiResult < 25) setClassification("Normal");
+    else if(bmiResult >= 25 && bmiResult < 30) setClassification("Overweight");
+    else if(bmiResult >= 30 && bmiResult < 35) setClassification("Obese Class I");
+    else if(bmiResult >= 35 && bmiResult < 40) setClassification("Obese Class II");
+    else if(bmiResult >= 40 && bmiResult < 45) setClassification("Severely Obese");
+    else if(bmiResult >= 45 && bmiResult < 50) setClassification("Morbidly Obese");
+    else if(bmiResult >= 50 && bmiResult < 60) setClassification("Super Obese");
+    else if(bmiResult >= 60) setClassification("Hyper Obese");
+    
     result(event);
     clearFields();
   }
@@ -119,8 +109,34 @@ const BMI = () => {
             </form>
           </div>
           <Modal openModal={openResult} closeModal={result}>
-            <h1 className="font-poppins font=extrabold text-[#F6F5F5] text-xs md:text-md lg:text-lg">BMI: <b className="text-[#008000]">{BMI}</b></h1>
-            <h1 className="font-poppins font=extrabold text-[#F6F5F5] text-xs md:text-md lg:text-lg">Category: <b>{classification}</b></h1>
+            <h1 className="font-mono font-extrabold text-[#4592AF] text-[1.5rem]">RESULTS</h1>
+            <section className="font-mono flex items-center gap-1 w-full">
+              <label className="font-bold text-[#33313B] text-sm md:text-md lg:text-lg">Body Mass Index:</label>
+              <label 
+                className={
+                  `text-[#4592AF] text-xs md:text-sm lg:text-md 
+                  ${BMI < 18.5 ? "text-[#000000]" : null} 
+                  ${BMI >= 18.5 && BMI < 25 ? "text-[#00ff00]" : null} 
+                  ${BMI >= 25 && BMI < 30 ? "text-[#4592AF]" : null} 
+                  ${BMI >= 30 && BMI < 40 ? "text-[#FFA500]" : null}
+                  ${BMI >= 40 ? "text-[#FF0000]" : null}`}
+                >
+                  {BMI}
+                </label>
+            </section>
+            <section className="font-mono flex items-center gap-1 w-full">
+              <label className="font-bold text-[#33313B] text-sm md:text-md lg:text-lg">Classification:</label>
+              <label className={
+                `text-[#4592AF] text-xs md:text-sm lg:text-md
+                ${classification === "Severely Underweight" || classification === "Underweight" ? "text-[#000000]" : null}
+                ${classification === "Normal" ? "text-[#00ff00]" : null}
+                ${classification === "Overweight" ? "text-[#4592AF]" : null} 
+                ${classification === "Obese Class I" || classification === "Obese Class II" ? "text-[#FFA500]" : null}
+                ${classification === "Severely Obese" || classification === "Morbidly Obese" || classification === "Super Obese" || classification === "Hyper Obese" ? "text-[#FF0000]" : null}`}
+              >
+                {classification}
+              </label>
+            </section>
           </Modal>
         </section>
         <Footer />
